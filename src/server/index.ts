@@ -17,6 +17,9 @@ server.use(
     '/api',
     rootRouter);
 
+//* Static server
+server.use(express.static("public"));
+
 //TODO mongoose connection
 
 

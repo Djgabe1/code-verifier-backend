@@ -4,11 +4,12 @@
   "description": "Backend Node + Express + TS + Swagger",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
-    "start": "node dist/index.js",
     "test": "jest",
-    "serve:coverage": "npm run test && cd coverage/lcov-report && npx serve"
+    "serve:coverage": "npm run test && cd coverage/lcov-report && npx serve",
+    "build": "npx webpack ---mode development",
+    "start": "node dist/index.js",
+    "build:prod": "npx webpack ---mode production"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "helmet": "^8.0.0"
+    "helmet": "^8.0.0",
+    "mongoose": "^8.12.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "tsoa": "^6.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
@@ -39,6 +44,8 @@
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.9",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
     "concurrently": "^9.1.2",
     "eslint": "^9.21.0",
     "globals": "^16.0.0",
@@ -47,6 +54,7 @@
     "serve": "^14.2.4",
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.6",
+    "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.0",
