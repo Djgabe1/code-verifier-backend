@@ -1,1 +1,21 @@
-(()=>{"use strict";var e={38:function(e,t,o){var n=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(t,"__esModule",{value:!0});const r=n(o(252)),u=n(o(577)),l=n(o(525)),s=n(o(139)),i=(0,r.default)();i.use("/api",s.default),i.use((0,l.default)()),i.use((0,u.default)()),i.use(r.default.urlencoded({extended:!0,limit:"50mb"})),i.use(r.default.json({limit:"50mb"})),i.get("/",((e,t)=>{t.redirect("/api")})),t.default=i},73:function(e,t,o){var n=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(t,"__esModule",{value:!0});const r=n(o(818)),u=n(o(38)),l=o(628);r.default.config();const s=process.env.PORT||8e3;u.default.listen(s,(()=>{(0,l.LogSuccess)(`[SERVER ON] is running on http://localhost:${s}/api`)})),u.default.on("error",(e=>{(0,l.LogError)(`Error on the server: ${e}`)}))},139:function(e,t,o){var n=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(t,"__esModule",{value:!0});const r=n(o(252)),u=n(o(182)),l=o(628);let s=(0,r.default)(),i=r.default.Router();i.get("/",((e,t)=>{(0,l.LogInfo)("GET: http://localhost:8000/api/"),t.send("Welcome to APP Express + Nodemon + jest + TS + Swagger + Mongoose")})),s.use("/",i),s.use("/hello",u.default),t.default=s},182:function(e,t,o){var n=this&&this.__awaiter||function(e,t,o,n){return new(o||(o=Promise))((function(r,u){function l(e){try{i(n.next(e))}catch(e){u(e)}}function s(e){try{i(n.throw(e))}catch(e){u(e)}}function i(e){var t;e.done?r(e.value):(t=e.value,t instanceof o?t:new o((function(e){e(t)}))).then(l,s)}i((n=n.apply(e,t||[])).next())}))},r=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(t,"__esModule",{value:!0});const u=r(o(252)),l=o(693),s=o(628);let i=u.default.Router();i.route("/").get(((e,t)=>n(void 0,void 0,void 0,(function*(){var o;let n=null===(o=null==e?void 0:e.query)||void 0===o?void 0:o.name;(0,s.LogInfo)(`Query parameter: ${n}`);const r=new l.HelloController,u=yield r.getMessage(n);t.send(u)})))),t.default=i},252:e=>{e.exports=require("express")},525:e=>{e.exports=require("helmet")},577:e=>{e.exports=require("cors")},628:(e,t)=>{Object.defineProperty(t,"__esModule",{value:!0}),t.LogError=t.LogWarning=t.LogSuccess=t.LogInfo=void 0,t.LogInfo=e=>{console.log(`Info: ${e}`)},t.LogSuccess=e=>{console.log(`Success: ${e}`)},t.LogWarning=e=>{console.log(`Warning: ${e}`)},t.LogError=e=>{console.log(`Error: ${e}`)}},693:function(e,t,o){var n=this&&this.__awaiter||function(e,t,o,n){return new(o||(o=Promise))((function(r,u){function l(e){try{i(n.next(e))}catch(e){u(e)}}function s(e){try{i(n.throw(e))}catch(e){u(e)}}function i(e){var t;e.done?r(e.value):(t=e.value,t instanceof o?t:new o((function(e){e(t)}))).then(l,s)}i((n=n.apply(e,t||[])).next())}))};Object.defineProperty(t,"__esModule",{value:!0}),t.HelloController=void 0;const r=o(628);t.HelloController=class{getMessage(e){return n(this,void 0,void 0,(function*(){return(0,r.LogSuccess)("[/api/hello] Get Request"),{message:`Hello, ${e||"world!"}!`}}))}}},818:e=>{e.exports=require("dotenv")}},t={};!function o(n){var r=t[n];if(void 0!==r)return r.exports;var u=t[n]={exports:{}};return e[n].call(u.exports,u,u.exports,o),u.exports}(73)})();
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+//* Environment Variables
+const dotenv_1 = __importDefault(require("dotenv"));
+const index_1 = __importDefault(require("./src/server/index"));
+const logger_1 = require("./src/utils/logger");
+//* Configuration the .env file
+dotenv_1.default.config();
+const PORT = process.env.PORT || 8000;
+//* Start the server
+index_1.default.listen(PORT, () => {
+    (0, logger_1.LogSuccess)(`[SERVER ON] is running on http://localhost:${PORT}/api`);
+});
+// * COntrol SERVER ERROR
+index_1.default.on("error", (error) => {
+    (0, logger_1.LogError)(`Error on the server: ${error}`);
+});
+//# sourceMappingURL=index.js.map

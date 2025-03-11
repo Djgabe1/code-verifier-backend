@@ -13,7 +13,7 @@ server.listen(PORT, () => {
     LogSuccess(`[SERVER ON] is running on http://localhost:${PORT}/api`);
 });
 
-// * COntrol SERVER ERROR
+// * Control SERVER ERROR
 
 server.on("error", (error: any) => {
     LogError(`Error on the server: ${error}`);
