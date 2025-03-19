@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 8000;
 index_1.default.listen(PORT, () => {
     (0, logger_1.LogSuccess)(`[SERVER ON] is running on http://localhost:${PORT}/api`);
 });
-// * COntrol SERVER ERROR
+// * Control SERVER ERROR
 index_1.default.on("error", (error) => {
     (0, logger_1.LogError)(`Error on the server: ${error}`);
 });

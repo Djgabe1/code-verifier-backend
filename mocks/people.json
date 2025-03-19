@@ -1,0 +1,66 @@
+{
+    "results": [
+      {
+        "gender": "female",
+        "name": {
+          "title": "Miss",
+          "first": "Karla",
+          "last": "de la Fuente"
+        },
+        "location": {
+          "street": {
+            "number": 9498,
+            "name": "Viaducto Quintana Roo"
+          },
+          "city": "Capilla de Guadalupe",
+          "state": "Ciudad de Mexico",
+          "country": "Mexico",
+          "postcode": 14794,
+          "coordinates": {
+            "latitude": "24.6048",
+            "longitude": "41.9700"
+          },
+          "timezone": {
+            "offset": "+5:45",
+            "description": "Kathmandu"
+          }
+        },
+        "email": "karla.delafuente@example.com",
+        "login": {
+          "uuid": "842bff13-06cd-4674-a5f9-a5f82c7eb915",
+          "username": "purplemouse415",
+          "password": "wave",
+          "salt": "yXZyCrju",
+          "md5": "d6c0a9ead4f4c8fe42a514dceef6df35",
+          "sha1": "1604d2d34f7f1452337195afd45878b83cbf5b3a",
+          "sha256": "8a2f309fa9ee2f03ffbb85e2e53cf4d6d2944902a63fba852a5c10b58ce7258c"
+        },
+        "dob": {
+          "date": "2000-07-05T22:56:52.533Z",
+          "age": 24
+        },
+        "registered": {
+          "date": "2013-04-02T01:00:46.378Z",
+          "age": 11
+        },
+        "phone": "(674) 875 1338",
+        "cell": "(649) 951 4518",
+        "id": {
+          "name": "NSS",
+          "value": "15 50 68 3091 8"
+        },
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/women/17.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/women/17.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/17.jpg"
+        },
+        "nat": "MX"
+      }
+    ],
+    "info": {
+      "seed": "3d40fc3e3825b917",
+      "results": 1,
+      "page": 1,
+      "version": "1.4"
+    }
+  }
