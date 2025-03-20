@@ -31,6 +31,46 @@ usersRouter.route('/')
     //Send to the Client the response
     res.send(response);
 })
+// POST
+.post(async (req: Request, res: Response) => {
+    // Call the controller Instance
+
+    let name: any = req?.query?.name;
+    let age: any = req?.query?.age;
+    let email: any = req?.query?.email;
+    LogInfo(`Query Param: ${name} ${age} ${email}`);
+    const controller: UserController = new UserController();
+
+    let user = {
+        name: name || "default",
+        email: email || "default email",
+        age: age || 0
+    }
+    // Call the method
+    const response = await controller.createUser(user);
+    // Return the response
+    res.send(response);
+})
+.put(async (req: Request, res: Response) => {
+    //Obtain a Query Param (ID)
+    let id: any =req?.query?.id;
+    let name: any = req?.query?.name;
+    let email: any = req?.query?.email;
+    let age: any = req?.query?.age;
+    LogInfo(`Query Params: ${id} ${name} ${age} ${email}`);
+     //Controller Instance to excute the method
+    const controller: UserController = new UserController();
+
+    let user ={
+        name: name ,
+        email: email ,
+        age: age 
+    }
+    //Obtain Response
+    const response: any = await controller.updateUser(id, user);
+    //Send to the Client the response
+    res.send(response);
+})
 /* usersRouter.route('/:user_id')
 .get()
  */

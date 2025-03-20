@@ -39,9 +39,28 @@ export const deleteUserById = async (id: string):Promise<any | undefined> => {
         LogError(`[ORM ERROR] Deleting User By ID : ${error}`);
     }
 } 
+//Create New User
+export const createUser = async (user: any):Promise<any | undefined> => {
+    try{
+        let usersModels = userEntity();
+        //Create new user
+        return await usersModels.create(user);
 
+    }catch(error){
+        LogError(`[ORM ERROR] Creating User : ${error}`);
+    } 
+    //Update User by ID
+
+}
+export const updateUserById = async (id: string, user: any):Promise<any | undefined> => {
+    try{
+        let usersModels = userEntity();
+        //Update user by ID
+        return await usersModels.findByIdAndUpdate(id, user);
+
+    }catch(error){
+        LogError(`[ORM ERROR] Updating User By ID ${id}: ${error}`);
+    }
+}
 //TODO:
 //Get User by Email
-
-//Create New User
-//Update User by ID
