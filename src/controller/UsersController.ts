@@ -10,7 +10,7 @@ import { getAllUsers, getUserById, deleteUserById, createUser,updateUserById } f
 @Route("/api/users")
 @Tags("UserController")
 export class UserController implements IUserController {
-  
+
     /**
      * Endpoint to get the users in the collection "users" of db
      * @param {strind} id Id of the user to get (optional)
@@ -58,7 +58,7 @@ export class UserController implements IUserController {
      * @returns message informing if deletion was correct
     */
     @Post("/")
-    public async createUser(user: any): Promise<any> {
+    public async createUser(@Query()user: any): Promise<any> {
         let response: any = '';
         
         await createUser(user).then((r)=>{

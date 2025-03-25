@@ -1,23 +1,26 @@
-import express ,{ Request, Response } from "express";
-import { UserController } from "../controller/UsersController";
-import { LogInfo } from "../utils/logger";
+import express,{ Request, Response} from "express";
+import { UserController} from "../controller/UsersController";
+import { LogInfo} from "../utils/logger";
+
 
 //Router from express
 let usersRouter = express.Router();
 
 // http://localhost:8000/api/users?id=67d49dfd79ca77cdafeccc7a
 usersRouter.route('/')
-// GET
+// GET:
 .get(async (req: Request, res: Response) => {
     //Obtain a Query parame (id)
     let id: any = req?.query?.id;
+    //Log the Query Param
+    //LogInfo(`Query Param: ${id}`);
     LogInfo(`Query Param: ${id}`);
     // Call the controller Instance
     const controller: UserController = new UserController();
     // Call the method
     const response:any = await controller.getUsers(id);
     // Return the response
-    res.send(response);
+    res.status(200).send(response);
 })
 //Delete: http://localhost:8000/api/users
 .delete(async (req: Request, res: Response) => {
@@ -29,7 +32,7 @@ usersRouter.route('/')
     //Obtain Response
     const response:any = await controller.deleteUser(id);
     //Send to the Client the response
-    res.send(response);
+    res.status(200).send(response);
 })
 // POST
 .post(async (req: Request, res: Response) => {
@@ -49,7 +52,7 @@ usersRouter.route('/')
     // Call the method
     const response = await controller.createUser(user);
     // Return the response
-    res.send(response);
+    res.status(201).send(response);
 })
 .put(async (req: Request, res: Response) => {
     //Obtain a Query Param (ID)
@@ -69,10 +72,18 @@ usersRouter.route('/')
     //Obtain Response
     const response: any = await controller.updateUser(id, user);
     //Send to the Client the response
-    res.send(response);
+    res.status(200).send(response);
 })
-/* usersRouter.route('/:user_id')
-.get()
- */
+
+
+
 // export UsersRoute
 export default usersRouter;
+
+/**
+ * Get Documents => 200 OK
+ * Creation Documentos  =>201 OK
+ * Delection of Documents => 200 (Entity) /204 (no return)
+ * Update of Documents => 200 (Entity) /204 (no return)
+ * 
+ */

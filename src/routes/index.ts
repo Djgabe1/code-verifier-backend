@@ -9,6 +9,7 @@ import { LogInfo } from '../utils/logger';
 import exp from 'constants';
 import { log } from 'console';
 import userRouter from './UserRouter';
+import authRouter from './AuthRouter';
 
 //Server Instance 
 
@@ -34,5 +35,7 @@ server.use('/hello', helloRouter); // http://localhost:8000/api/hello/
 
 //Add more routers to the app
 server.use('/users', userRouter); // http://localhost:8000/api/users/
+//Auth routes
+server.use('/auth', authRouter);
 
 export default server;
